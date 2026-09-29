@@ -15,7 +15,7 @@ I'm a senior at Washington University in St. Louis studying **Systems Science & 
 | [CareerFlow AI](https://github.com/TobySun058/careerflow-ai) | Grounded agent product with orchestration, retrieval, persistent sessions, and MCP integrations in Next.js / TypeScript |
 | [Controlled Gradient Flow](https://github.com/TobySun058/controlled-gradient-flow) | JAX research code using minimum control energy to characterize nonconvex loss landscapes and basin transitions |
 | [Robot Motion Planning](https://github.com/TobySun058/robot-motion-planning) | Grid search, geometric and kinodynamic RRT, online replanning, and ROS 2 TurtleBot integration |
-| [Crazyflie Flight Control](https://github.com/TobySun058/crazyflie-flight-control) | Quadrotor modeling, LQR/LQR-PI control, state estimation, motor mixing, simulation, and hardware validation |
+| [Crazyflie Flight Control](https://github.com/TobySun058/crazyflie-flight-control) | Quadrotor modeling, LQR/LQR-PI control, actuator allocation, simulation, and hardware validation |
 | [Frontis × MLEvolve](https://github.com/TobySun058/OpenRSI_MLEvolve) | Frontis/OpenRSI backend integration for MLEvolve with structured-output fallbacks and compatibility testing |
 
 ## Experience highlights
