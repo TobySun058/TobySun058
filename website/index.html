@@ -511,7 +511,7 @@ window.PORTFOLIO_DATA = {
           id: "gramian",
           title: "Nonlinear Gramian Steering",
           role: "WashU Ching Lab",
-          meta: "2026 — Present",
+          meta: "Jan 2026 — Present",
           summary: "Nonlinear minimum-energy steering for kinodynamic motion planning, evaluated on 3D and 5D unicycle robots.",
           highlights: ["60/60 3D RRT* runs", "119/120 5D transfers", "Mixed-G / PMP comparisons"],
           tags: ["Robotics", "Nonlinear Control", "Motion Planning"],
@@ -531,7 +531,7 @@ window.PORTFOLIO_DATA = {
             ],
             stackLabel: "Methods",
             stack: ["Python", "JAX", "Nonlinear Control", "RRT*", "PMP Shooting", "Numerical Optimization"],
-            note: "Ongoing research; reported outcomes refer to specified numerical benchmarks rather than general optimality guarantees.",
+            note: "Manuscript in preparation (not yet submitted). These results refer to specific numerical benchmarks and do not establish global minimum-energy optimality.",
             links: []
           }
         },
@@ -541,7 +541,7 @@ window.PORTFOLIO_DATA = {
           role: "CMU Min Xu Lab",
           meta: "Aug 2026 — Present",
           summary: "Testing what pretrained action-conditioned world models encode about future physical states and how they use history and actions.",
-          highlights: ["9.38 px center error", "84.4% latent pairing", "History × action tests"],
+          highlights: ["9.38 px center error", "84.4% latent pairing", "2.567 px interaction gain"],
           tags: ["World Models", "Mechanistic Interpretability", "Robot Learning"],
           detail: {
             overview: "I investigate whether pretrained action-conditioned world models contain and use physically meaningful representations for robotic manipulation. With V-JEPA 2-AC on DROID trajectories and DINO-WM / JEPA-WM on PushT, I separate decodable predictive information from evidence for causal internal mechanisms.",
@@ -555,11 +555,11 @@ window.PORTFOLIO_DATA = {
             impact: [
               "A predicted-feature readout achieved 9.383 px block-center error, versus 12.906 px for a matched history-and-action baseline; physical pair-assignment accuracy reached 89.1% across 128 held-out simulation families.",
               "On a separate 64-pair confirmation set, DINO-WM achieved 84.4% future-latent pair assignment, versus 67.2% for a persistence baseline; swapping histories sharply reduced accuracy.",
-              "History–action interaction error fell from 11.256 to 8.689 px compared with an input baseline, but action-effect prediction was worse. Supervised decoding and behavioral interventions do not yet establish a simple causal physical mechanism."
+              "On 128 matched cases, history–action interaction error fell from 11.256 to 8.689 px versus an input baseline (mean improvement: 2.567 px; 95% CI [1.497, 3.643]). Action-effect prediction remained worse than its baseline; this does not establish an internal causal physical mechanism."
             ],
             stackLabel: "Methods",
             stack: ["PyTorch", "V-JEPA 2-AC", "DINO-WM", "JEPA-WM", "DROID", "PushT", "Activation Patching"],
-            note: "Research in progress. Physical-state readouts use supervised labels and simulated occlusions; we avoid interpreting decodability alone as causal mechanistic understanding.",
+            note: "Research in progress, targeting a 2027 conference submission (not yet submitted). Physical-state readouts use supervised labels and simulated occlusions; decodability alone is not evidence of a causal physical mechanism.",
             links: []
           }
         },
