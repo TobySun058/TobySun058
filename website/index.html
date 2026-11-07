@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Jiahong (Toby) Sun — ML / AI systems, LLM agents, robotics, and control." />
+  <meta name="description" content="Jiahong (Toby) Sun — AI systems, interpretable world models, nonlinear control, and robot motion planning." />
   <meta name="theme-color" content="#f6f5f0" />
-  <title>Jiahong (Toby) Sun — ML / AI Systems, Agents & Robotics</title>
+  <title>Jiahong (Toby) Sun — AI Systems, World Models & Robotics</title>
   <style>
 :root{
   --bg:#f5f4ef;
@@ -390,9 +390,9 @@ body.modal-open{overflow:hidden}
 <main class="shell">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <p class="eyebrow">ML / AI systems · LLM agents · robotics &amp; control</p>
+      <p class="eyebrow">AI systems · world models · robotics &amp; control</p>
       <h1 id="hero-title">Building intelligent systems from models to robots.</h1>
-      <p class="hero-summary">I build agent products and ML systems, and research optimization, motion planning, and nonlinear control.</p>
+      <p class="hero-summary">I build AI agents and efficient LLM systems, investigate physical representations in world models, and develop nonlinear motion-planning methods for robots.</p>
     </div>
     <div class="hero-profile" aria-label="Education">
       <div class="profile-school">Washington University in St. Louis</div>
@@ -504,58 +504,63 @@ window.PORTFOLIO_DATA = {
     {
       id: "research",
       title: "Research",
-      subtitle: "Questions I am actively exploring.",
+      subtitle: "Evidence-driven work in world models and nonlinear control.",
       accent: "blue",
       items: [
         {
           id: "gramian",
           title: "Nonlinear Gramian Steering",
           role: "WashU Ching Lab",
-          meta: "Current",
-          summary: "State-to-state steering for nonlinear kinodynamic motion planning.",
-          highlights: ["RRT* / PRM local steering", "Nonlinear Gramians", "Picard iteration"],
-          tags: ["Robotics", "Control", "Motion Planning"],
+          meta: "2026 — Present",
+          summary: "Nonlinear minimum-energy steering for kinodynamic motion planning, evaluated on 3D and 5D unicycle robots.",
+          highlights: ["60/60 3D RRT* runs", "119/120 5D transfers", "Mixed-G / PMP comparisons"],
+          tags: ["Robotics", "Nonlinear Control", "Motion Planning"],
           detail: {
-            overview: "I am developing a nonlinear state-to-state steering method based on trajectory-dependent Gramians, with the goal of using it as a practical local steering primitive inside sampling-based kinodynamic planners.",
-            builtLabel: "What I'm working on",
+            overview: "I study nonlinear minimum-energy control for robotics. My work develops trajectory-dependent Gramian and endpoint-sensitivity formulations for state-to-state steering, then tests practical solvers on 3D kinematic and 5D dynamic unicycle models.",
+            builtLabel: "Methods and experiments",
             built: [
-              "Developing fixed-horizon nonlinear state-to-state steering with trajectory-dependent Gramians.",
-              "Using Picard / fixed-point iteration to compute the nonlinear steering control.",
-              "Integrating the steering primitive into PRM and RRT*, then benchmarking it against linearized Gramian / LQR and nonlinear optimal-control baselines."
+              "Developed nonlinear Gramian steering formulations, including a structured 3D Mixed-G method and 5D dynamic-unicycle experiments.",
+              "Implemented and compared damped Picard, Anderson acceleration, Newton–Krylov, and Pontryagin's Minimum Principle (PMP) shooting methods, including Gramian-guided initialization.",
+              "Integrated local steering methods into kinodynamic RRT* and evaluated three obstacle environments with 20 random seeds each, tracking path feasibility, first-path time, and control cost."
             ],
-            impactLabel: "Research question",
+            impactLabel: "Results and limitations",
             impact: [
-              "Can nonlinear Gramian steering retain more nonlinear state-to-state accuracy than local linearization while remaining substantially cheaper than solving a generic nonlinear optimal-control problem at every edge?",
-              "Evaluation tracks steering error, control energy, solve time, and planner-level success."
+              "In the tested 3D RRT* benchmarks, Specific Mixed-G with Anderson acceleration found valid paths in 60/60 runs, compared with 32/60 for single-start PMP, under a 60-second per-run budget.",
+              "On 120 tested 5D transfers, PMP with Gramian-guided restarts solved 119/120 versus 106/120 for conventional perturbation restarts.",
+              "A separate 20-query 5D energy-quality study found no advantage over strong PMP multistart baselines. These numerical results do not establish global minimum-energy optimality."
             ],
             stackLabel: "Methods",
-            stack: ["JAX", "Nonlinear Control", "RRT*", "PRM", "Picard Iteration"],
+            stack: ["Python", "JAX", "Nonlinear Control", "RRT*", "PMP Shooting", "Numerical Optimization"],
+            note: "Ongoing research; reported outcomes refer to specified numerical benchmarks rather than general optimality guarantees.",
             links: []
           }
         },
         {
-          id: "irreversible-id",
-          title: "Irreversible System Identification",
+          id: "world-models",
+          title: "Interpreting Physical World Models",
           role: "CMU Min Xu Lab",
-          meta: "Current",
-          summary: "Active system identification when robot interactions can permanently remove future measurements.",
-          highlights: ["Active system ID", "Irreversible interactions", "Future experiment value"],
-          tags: ["Robotics", "Active Learning", "Planning", "System Identification"],
+          meta: "Aug 2026 — Present",
+          summary: "Testing what pretrained action-conditioned world models encode about future physical states and how they use history and actions.",
+          highlights: ["9.38 px center error", "84.4% latent pairing", "History × action tests"],
+          tags: ["World Models", "Mechanistic Interpretability", "Robot Learning"],
           detail: {
-            overview: "I am studying active system identification under irreversible robot interactions, where a probe can reveal information while also permanently changing what can still be measured later.",
-            builtLabel: "What I'm working on",
+            overview: "I investigate whether pretrained action-conditioned world models contain and use physically meaningful representations for robotic manipulation. With V-JEPA 2-AC on DROID trajectories and DINO-WM / JEPA-WM on PushT, I separate decodable predictive information from evidence for causal internal mechanisms.",
+            builtLabel: "Experiments",
             built: [
-              "Developing planning methods that balance immediate information gain with the value of preserving future experiments.",
-              "Modeling recoverability: whether the remaining action sequence can still distinguish unresolved system hypotheses.",
-              "Designing simulation benchmarks across material and system-property settings, with exact planning used as a comparison target."
+              "Built matched counterfactual evaluations that control visual history, robot actions, and observation conditions; used latent interventions and activation patching to test prediction sensitivity.",
+              "Trained physical-state readouts on held-out simulated PushT families to recover future block position and orientation from predicted representations, with matched history-and-action and constant-velocity baselines.",
+              "Tested history-dependent prediction and history–action interaction effects, while checking failure cases where predicted action effects did not outperform simpler baselines."
             ],
-            impactLabel: "Research question",
+            impactLabel: "Findings and limitations",
             impact: [
-              "When can a locally informative experiment permanently destroy measurements needed for later identification, and how should a planner account for that future loss?",
-              "Evaluation compares identification success and planning efficiency against greedy information-gain baselines under different action orders."
+              "A predicted-feature readout achieved 9.383 px block-center error, versus 12.906 px for a matched history-and-action baseline; physical pair-assignment accuracy reached 89.1% across 128 held-out simulation families.",
+              "On a separate 64-pair confirmation set, DINO-WM achieved 84.4% future-latent pair assignment, versus 67.2% for a persistence baseline; swapping histories sharply reduced accuracy.",
+              "History–action interaction error fell from 11.256 to 8.689 px compared with an input baseline, but action-effect prediction was worse. Supervised decoding and behavioral interventions do not yet establish a simple causal physical mechanism."
             ],
             stackLabel: "Methods",
-            stack: ["Active System Identification", "Planning", "Robotics", "Simulation", "Python"]
+            stack: ["PyTorch", "V-JEPA 2-AC", "DINO-WM", "JEPA-WM", "DROID", "PushT", "Activation Patching"],
+            note: "Research in progress. Physical-state readouts use supervised labels and simulated occlusions; we avoid interpreting decodability alone as causal mechanistic understanding.",
+            links: []
           }
         },
         {
